@@ -53,11 +53,11 @@ function onGalleryClick (evt) {
             },
         }
               );
-              instance.show();
-              function onEsc(event) {
-                    const modal = document.querySelector(".basicLightbox");
-                    if (event.key === "Escape" && modal) {
-                      instance.close();
-                    }
-                  }
+        instance.show();
+          function onEsc(event) {
+          const modal = document.querySelector(".basicLightbox");
+          if (event.key === "Escape" && modal) {
+          instance.close();
+          }
+         }
 }
