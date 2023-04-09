@@ -6,8 +6,6 @@ const imageMarkup = createImageMarkup (galleryItems);
 
 
 gallery.insertAdjacentHTML('beforeend', imageMarkup);
-gallery.addEventListener("click", (event) => {
-    event.preventDefault();});
 gallery.addEventListener(`click`, onGalleryClick);
 
 function createImageMarkup (galleryItems) {
@@ -33,15 +31,13 @@ function onGalleryClick (evt) {
     if(!evt.target.classList.contains(`js-target`)) {
         return;
     }
-    const adress = evt.target.closest(".js-card");
-    const { source } = adress.dataset;
-    const data = galleryItems.find(({ original }) => original === source);
+    evt.preventDefault();
     const instance = basicLightbox.create(
          `
           <img
             class="gallery__image"
-            src=${data.original}
-            alt=${data.description}
+            src=${evt.target.dataset.source}
+            alt=${evt.target.alt}
           />
         `,
         {
@@ -55,7 +51,6 @@ function onGalleryClick (evt) {
               );
         instance.show();
           function onEsc(event) {
-          const modal = document.querySelector(".basicLightbox");
           if (event.key === "Escape" && modal) {
           instance.close();
           }

@@ -19,7 +19,7 @@ function createImageMarkup (galleryItems) {
     .join(``);
  }
 
- var lightbox = new SimpleLightbox(".gallery a", {captionSelector: "img",
+ new SimpleLightbox(".gallery a", {captionSelector: "img",
  captionDelay: 250,
  captionsData: "alt",
  captionPosition: "bottom",
